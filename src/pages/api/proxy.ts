@@ -137,7 +137,7 @@ export const GET: APIRoute = async ({ url, request }) => {
     try {
       const response = await fetch(fullUrl, {
         headers: {
-          'User-Agent': request.headers.get('User-Agent') || 'Bifocal Proxy',
+          'User-Agent': request.headers.get('User-Agent') || 'Bifocals Proxy',
           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
           'Accept-Language': 'en-US,en;q=0.5',
           'Connection': 'keep-alive',

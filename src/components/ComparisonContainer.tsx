@@ -58,7 +58,7 @@ export const ComparisonContainer: React.FC = () => {
     <>
       <div className="toolbar">
         <div className="branding">
-          👓 bifocal
+          👓 bifocals
         </div>
         
         <div className="url-inputs">
