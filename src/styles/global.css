@@ -1,0 +1,299 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Layout */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar */
+.toolbar {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  height: 3.5rem;
+}
+
+.branding {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 0.75rem;
+  border-right: 1px solid #ddd;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.url-inputs {
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.url-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.viewport-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.viewport-controls .controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewport-controls button {
+  min-width: max-content;
+}
+
+.viewport-controls input {
+  min-width: 5rem;
+  width: 5rem;
+}
+
+.viewport-controls span {
+  font-size: 0.8125rem;
+  color: #666;
+}
+
+.disco-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: max-content;
+}
+
+.sync-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid #ddd;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: max-content;
+}
+
+/* Form elements */
+input {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  min-width: 0;
+}
+
+input[type="number"] {
+  width: 3.5rem;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+button {
+  padding: 0.4rem 0.6rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+button:hover {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+}
+
+button.active {
+  background-color: #0066cc;
+  border-color: #0066cc;
+  color: white;
+}
+
+/* Display area */
+.display-area {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.display-area::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 1px;
+  background-color: #ddd;
+  z-index: 10;
+}
+
+.frame-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 0;
+  padding: 0 1rem;
+}
+
+.iframe-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+  height: 100%;
+  flex-shrink: 0;
+  /* The width will be set inline by the component */
+}
+
+iframe {
+  border: none;
+  height: 100%;
+  background: white;
+  flex-shrink: 0;
+  width: 100%; /* Make iframe fill its container */
+}
+
+/* Center iframe when smaller than container */
+.iframe-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Add visual indication of iframe boundaries */
+.iframe-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.iframe-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.frame-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.error {
+  color: #dc2626;
+  white-space: pre-line;
+}
+
+.hint {
+  color: #666;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* URL Input Validation */
+.url-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.url-input-container input.invalid {
+  border-color: #dc2626;
+  background-color: #fef2f2;
+}
+
+.url-input-container .error-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: #dc2626;
+  background-color: #fff;
+  border: 1px solid #dc2626;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
