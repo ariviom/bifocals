@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^6.1.0",
     "@astrojs/node": "^9.0.2",
     "@astrojs/react": "^4.2.0",
     "@iframe-resizer/react": "^5.3.2",

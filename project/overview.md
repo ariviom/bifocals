@@ -161,3 +161,23 @@ After MVP Completion:
 - Explore enhancements like persisting configurations via URL parameters.
 - Improve error handling or add support for additional user controls.
 - Consider alternative methods for site loading if iframe restrictions become a significant issue.
+
+8. Development & Deployment
+
+Local Development:
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. For local development, uncomment the Node adapter in `astro.config.mjs` and comment out the Netlify adapter
+4. Run the development server: `npm run dev`
+
+Deployment:
+
+1. The project is configured for Netlify deployment
+2. Ensure the Netlify adapter is active in `astro.config.mjs` (Node adapter should be commented out)
+3. Push to your GitHub repository
+4. Connect your repository to Netlify
+5. Deploy with the following settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+   - Node version: 18.x or higher
