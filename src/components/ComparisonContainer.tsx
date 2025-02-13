@@ -10,7 +10,7 @@ export const ComparisonContainer: React.FC = () => {
   const [width, setWidth] = useState(375);
   const [isSyncingScroll, setIsSyncingScroll] = useState(true);
   const [isDiscoActive, setIsDiscoActive] = useState(false);
-  
+
   const leftContainerRef = useRef<HTMLDivElement>(null);
   const rightContainerRef = useRef<HTMLDivElement>(null);
   const isScrollingSyncRef = useRef(false);
@@ -21,7 +21,7 @@ export const ComparisonContainer: React.FC = () => {
 
     const handleScroll = (e: Event) => {
       if (isScrollingSyncRef.current) return;
-      
+
       const sourceContainer = e.target as HTMLDivElement;
       const targetContainer = sourceContainer === leftContainerRef.current
         ? rightContainerRef.current
@@ -30,7 +30,7 @@ export const ComparisonContainer: React.FC = () => {
       if (targetContainer && sourceContainer.scrollLeft !== targetContainer.scrollLeft) {
         isScrollingSyncRef.current = true;
         targetContainer.scrollLeft = sourceContainer.scrollLeft;
-        
+
         // Reset the scrolling flag after a short delay
         setTimeout(() => {
           isScrollingSyncRef.current = false;
@@ -60,7 +60,7 @@ export const ComparisonContainer: React.FC = () => {
         <div className="branding">
           👓 bifocals
         </div>
-        
+
         <div className="url-inputs">
           <div className="url-input">
             <URLInput
@@ -77,13 +77,13 @@ export const ComparisonContainer: React.FC = () => {
         </div>
 
         <div className="viewport-controls">
-          <ViewportController 
-            onWidthChange={setWidth} 
+          <ViewportController
+            onWidthChange={setWidth}
             disabled={isDiscoActive}
           />
         </div>
 
-        <DiscoMode 
+        <DiscoMode
           onWidthChange={setWidth}
           onActiveChange={setIsDiscoActive}
           disabled={false}
